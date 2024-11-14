@@ -1,0 +1,46 @@
+<div class="container">
+    <h1 class="mb-3">Welcome</h1>
+    <form [formGroup]="user" (ngSubmit)="register(user)">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            <span *ngIf="user.get('firstName')?.errors?.['required'] && user.get('firstName')?.touched" 
+            class="text-danger">First Name is required</span>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            <span *ngIf="user.get('lastName')?.errors?.['required'] && user.get('lastName')?.touched" 
+            class="text-danger">Last Name is required</span>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <span *ngIf="user.get('email')?.errors?.['required'] && user.get('email')?.touched" 
+            class="text-danger">Email is required</span>
+            <span *ngIf="user.get('email')?.errors?.['email'] && user.get('email')?.touched" 
+            class="text-danger">Email is invalid</span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <span *ngIf="user.get('password')?.errors?.['required'] && user.get('password')?.touched" 
+            class="text-danger">Password is required</span>
+            <span *ngIf="user.get('password')?.errors?.['pattern'] && user.get('password')?.touched" 
+            class="text-danger">Password is invalid</span>
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+            <span *ngIf="user.get('phoneNumber')?.errors?.['required'] && user.get('phoneNumber')?.touched" 
+            class="text-danger">Phone Number is required</span>
+        </div>
+        <div class="mb-3">
+            <label for="dateOfBirth" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+            <span *ngIf="user.get('dateOfBirth')?.errors?.['required'] && user.get('dateOfBirth')?.touched" 
+            class="text-danger">Date of Birth is required</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
