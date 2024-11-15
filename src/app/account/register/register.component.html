@@ -41,6 +41,6 @@
             <span *ngIf="user.get('dateOfBirth')?.errors?.['required'] && user.get('dateOfBirth')?.touched" 
             class="text-danger">Date of Birth is required</span>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary" [disabled]="user.invalid">Register</button>
     </form>
 </div>

@@ -1,0 +1,17 @@
+
+<div class="container">
+    <h3>Add Category</h3>
+    <form [formGroup]="category" (ngSubmit)="adddCategory(category)" >
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <span *ngIf="category.get('name')?.errors?.['required'] && category.get('name')?.touched" 
+            class="text-danger">Name is required</span>
+        </div>
+        <div class="mb-3">
+            <label for="parentCategory" class="form-label">Parent Category</label>
+            <input type="text" class="form-control" id="parentCategory" formControlName="parentCategory">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="category.invalid">Submit</button>
+    </form>
+</div>

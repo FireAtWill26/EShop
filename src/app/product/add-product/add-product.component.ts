@@ -1,16 +1,30 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.scss'
 })
 export class AddProductComponent {
-  productName: string = '';
-  productDiscription: string = '';
-  productPrice: number = 0;
-  productImage: string = '';
-  sku: string = '';
+
+  product : FormGroup;
+
+  constructor() {
+    this.product = new FormGroup({
+      name : new FormControl('', [Validators.required]),
+      description : new FormControl('', [Validators.required]),
+      category : new FormControl('', [Validators.required]),
+      subcategory : new FormControl('', [Validators.required]),
+      price : new FormControl('', [Validators.required]),
+      image : new FormControl('', [Validators.required]),
+      sku : new FormControl('', [Validators.required]),
+      status : new FormControl('', [Validators.required])
+    })
+  }
+
+  addproduct(productForm: FormGroup) {
+    
+  }
 }

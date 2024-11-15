@@ -1,1 +1,63 @@
-<p>add-product works!</p>
+<div class="container">
+    <h1>Add Product</h1>
+    <form [formGroup]="product" (ngSubmit)="addproduct(product)">
+        <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <span *ngIf="product.get('name')?.errors?.['required'] && product.get('name')?.touched" 
+            class="text-danger">Product Name is required</span>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" rows="6" class="form-control" id="description" formControlName="description"></textarea>
+            <span *ngIf="product.get('description')?.errors?.['required'] && product.get('description')?.touched" 
+            class="text-danger">Description is required</span>
+        </div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" class="form-control" id="category" formControlName="category">
+                    <span *ngIf="product.get('category')?.errors?.['required'] && product.get('category')?.touched" 
+                    class="text-danger">Category is required</span>
+                </div>
+                <div class="col">
+                    <label for="subcategory" class="form-label">Subcategory</label>
+                    <input type="text" class="form-control" id="subcategory" formControlName="subcategory">
+                    <span *ngIf="product.get('subcategory')?.errors?.['required'] && product.get('subcategory')?.touched" 
+                    class="text-danger">Subcategory is required</span>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="0" formControlName="price">
+                <span *ngIf="product.get('price')?.errors?.['required'] && product.get('price')?.touched" 
+                class="text-danger">Price is required</span>
+            </div>
+            <div class="col">
+                <label for="image" class="form-label">Image</label>
+                <input type="text" class="form-control" id="image" formControlName="image">
+                <span *ngIf="product.get('image')?.errors?.['required'] && product.get('image')?.touched" 
+                class="text-danger">Image is required</span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="sku" class="form-label">SKU</label>
+                <input type="text" class="form-control" id="sku" placeholder="0" formControlName="sku">
+                <span *ngIf="product.get('sku')?.errors?.['required'] && product.get('sku')?.touched" 
+                class="text-danger">SKU is required</span>
+            </div>
+            <div class="col">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" class="form-control" id="status" formControlName="status">
+                <span *ngIf="product.get('status')?.errors?.['required'] && product.get('status')?.touched" 
+                class="text-danger">Status is required</span>
+            </div>
+        </div>
+      
+        <button type="submit" class="btn btn-primary" [disabled]="product.invalid">Add a Product</button>
+    </form>
+</div> 
