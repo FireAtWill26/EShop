@@ -22,7 +22,13 @@
             <td>{{order.BillAmount|currency: "USD"}}</td>
             <td [ngClass]="{'text-success': order.Order_Status === 'completed', 
             'text-danger': order.Order_Status === 'cancelled'}">{{order.Order_Status|titlecase}}</td>
-            <td><button class="btn btn-primary">View</button></td>
+            <td>
+
+                <select class="custom-select" [(ngModel)]="order.Order_Status" value="Select Status">
+                    <option *ngFor="let status of status" value="{{status}}">{{status|titlecase}}</option>
+                </select>
+            </td>
         </tr>
+
     </tbody>
 </table>

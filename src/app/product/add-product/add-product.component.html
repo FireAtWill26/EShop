@@ -20,6 +20,9 @@
                     <input type="text" class="form-control" id="category" formControlName="category">
                     <span *ngIf="product.get('category')?.errors?.['required'] && product.get('category')?.touched" 
                     class="text-danger">Category is required</span>
+                    <div class="row">
+                        <a [routerLink]="['/category/add']">Add a New Category</a>
+                    </div>
                 </div>
                 <div class="col">
                     <label for="subcategory" class="form-label">Subcategory</label>
